@@ -1,0 +1,23 @@
+# Плейсхолдеры:
+
+settings:
+  world: "BetaTest"
+
+  block-remove: CYAN_STAINED_GLASS # Какой блок будет удалятся ?
+
+  max-player-event: 2 # 120 на весь сервер, 121 первый уже спек
+  timer-min-start: 2 # 10 игроков - начинается отчет
+
+  enable-pvp: 1 # в минутах: через сколько вкл пвп?
+  enable-ad: 2 # В минутах: Через сколько вкл ад?
+
+  sound-join-game: ENTITY_ILLUSIONER_PREPARE_MIRROR
+  sound-title: ENTITY_ILLUSIONER_PREPARE_BLINDNESS
+  sound-time: ENTITY_BEE_STING
+  sound-dead: ENTITY_LIGHTNING_BOLT_THUNDER
+  sound-ad-enable: ENTITY_ILLUSIONER_PREPARE_BLINDNESS
+  sound-pvp-enable: ENTITY_ILLUSIONER_PREPARE_BLINDNESS
+
+  phase-pvp: "До начало пвп {time}"
+  phase-ad: "До открытие Ада {time}"
+  phase-pre-start: "Подбор игроков 1/100"

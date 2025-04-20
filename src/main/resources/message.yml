@@ -1,0 +1,31 @@
+message:
+  limit-player: "&eВы в режиме &bспектатора&e так как на мини-игре &bдостаточно&e игроков!"
+
+  pre-start: "&eДо начало игры &b{time} сек!"
+  start: "&eИгра началась!"
+  player-join: "&7{player}&e присоединился к игре! &e(&b{online}/&b120&e)"
+  join-player-gameStart: "&eИгра уже &cначалась!&e Вы теперь только спекаете :("
+  quit-player: "&7{player}&e вышел из игры! &e(&b{online}/&b120&e)"
+  stop-pre-start: "&eТаймер &cостановился!&e Недостаточно игроков для начало игры!"
+
+  player-win: "\n &eПобедил игрок: &b{player}\n         &eПоздравляем его!\n "
+  team-win: "\n &eПобедила команда: &b{team}\n         &eПоздравляем их! \n "
+
+  tp-player-not: "&eИгрок не &cнайден!"
+  tp-use: "&eИспользуй:&b /tp ник"
+  tp-tp: "&bНельзя телепортироваться к самому себе!"
+  tp-player: "&eВы телепортированы к игроку &b{player}"
+
+  ad-enable: "&eАд включен!"
+  ad-disable-cause: "&eПортал в ад отключен!"
+  ad-timer: "&eДо вкл. ада осталось: &b{time}"
+
+  pvp-enable: "&cПвП&e теперь разрешен!"
+  pvp-timer: "&eДо вкл. пвп осталось:&b {time} сек"
+
+  dead: "Игрок {player} умер! Осталось игроков: {lifePlayers}"
+title:
+  title-send: "&d{time}"
+  title-ad: "&cАд &fвключен!"
+  title-pvp: "&cПвП &fвключено!"
+  title-start: "&eИгра началась!"
