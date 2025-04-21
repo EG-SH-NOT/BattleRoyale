@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.val;
 import org.bukkit.Bukkit;
 import org.bukkit.Server;
+import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.infernworld.battleroyale.BattleRoyale;
 import org.infernworld.battleroyale.fileSettings.Config;
@@ -105,6 +106,10 @@ public class GameManager {
         if (pvpTimer != null) {
             pvpTimer.cancel();
             pvpTimer = null;
+        }
+
+        for (Player p : Bukkit.getOnlinePlayers()) {
+            p.sendTitle(message.getTitleEnd(),"");
         }
 
         new BukkitRunnable() {

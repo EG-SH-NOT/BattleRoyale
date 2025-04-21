@@ -24,8 +24,10 @@ message:
   pvp-timer: "&eДо вкл. пвп осталось:&b {time} сек"
 
   dead: "Игрок {player} умер! Осталось игроков: {lifePlayers}"
+  pvp-disable: "&eПвП отключено, драться нельзя! Пвп будет включено через: &b{time}"
 title:
   title-send: "&d{time}"
   title-ad: "&cАд &fвключен!"
   title-pvp: "&cПвП &fвключено!"
   title-start: "&eИгра началась!"
+  title-end: "&eИгра окончена!"

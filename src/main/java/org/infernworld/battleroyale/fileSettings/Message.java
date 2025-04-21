@@ -14,7 +14,7 @@ public class Message {
             quit, tpPlayerNot, tpUse,
             tpTp,tpPlayer, titleAd,
             titlePvp, adTimer, win,
-            teamWin, titleStart;
+            teamWin, titleStart, pvpDisable, titleEnd;
 
     public Message(FileConfiguration msg) {
         ConfigurationSection message = msg.getConfigurationSection("message");
@@ -34,6 +34,7 @@ public class Message {
         this.disableAd = ColorUtil.getColor(message.getString("ad-disable-cause"));
         this.quit = ColorUtil.getColor(message.getString("quit-player"));
         this.stopPre = ColorUtil.getColor(message.getString("stop-pre-start"));
+        this.pvpDisable = ColorUtil.getColor(message.getString("pvp-disable"));
 
         this.win = ColorUtil.getColor(message.getString("player-win"));
         this.teamWin = ColorUtil.getColor(message.getString("team-win"));
@@ -47,5 +48,6 @@ public class Message {
         this.titleAd = ColorUtil.getColor(title.getString("title-ad"));
         this.titlePvp = ColorUtil.getColor(title.getString("title-pvp"));
         this.titleStart = ColorUtil.getColor(title.getString("title-start"));
+        this.titleEnd = ColorUtil.getColor(title.getString("title-end"));
     }
 }

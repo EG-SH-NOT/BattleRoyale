@@ -24,33 +24,38 @@ public class ColbManager {
     }
 
     public void loadColbs() {
-        ConfigurationSection colbsSec = plugin.getDataColbs().getConfigurationSection("colbs");
-        if (colbsSec == null) {
-            plugin.getLogger().warning("Раздел 'colbs' не найден в конфиге!");
+        String tpl = plugin.getDataColbs().getString("world-base");
+        ConfigurationSection section = plugin.getDataColbs()
+                .getConfigurationSection("colbs." + tpl);
+
+        if (section == null) {
+            plugin.getLogger().warning("Колбы для шаблона '" + tpl + "' не найдены!");
             return;
         }
+
         colbs.clear();
-        colbsSec.getKeys(false).forEach(key -> {
-            World world = Bukkit.getWorld(colbsSec.getString(key + ".world"));
-            if (world == null) {
-                plugin.getLogger().warning("Мир не найден для колбы: " + key);
-                return;
-            }
+        for (String key : section.getKeys(false)) {
+            ConfigurationSection c = section.getConfigurationSection(key);
+            World world = Bukkit.getWorld(c.getString("world"));
             Location loc = new Location(
                     world,
-                    colbsSec.getDouble(key + ".x"),
-                    colbsSec.getDouble(key + ".y"),
-                    colbsSec.getDouble(key + ".z")
+                    c.getDouble("x"),
+                    c.getDouble("y"),
+                    c.getDouble("z")
             );
             colbs.add(loc);
-        });
+        }
     }
 
     public void saveColbLocation(String name, Location location) {
-        plugin.getDataColbs().set("colbs." + name + ".world", location.getWorld().getName());
-        plugin.getDataColbs().set("colbs." + name + ".x", location.getX());
-        plugin.getDataColbs().set("colbs." + name + ".y", location.getY());
-        plugin.getDataColbs().set("colbs." + name + ".z", location.getZ());
+        String tpl = plugin.getDataColbs().getString("world-base");
+        String path = "colbs." + tpl + "." + name;
+
+        plugin.getDataColbs().set(path + ".world", location.getWorld().getName());
+        plugin.getDataColbs().set(path + ".x", location.getX());
+        plugin.getDataColbs().set(path + ".y", location.getY());
+        plugin.getDataColbs().set(path + ".z", location.getZ());
+
         plugin.saveConfig();
         try {
             plugin.getDataColbs().save(new File(plugin.getDataFolder(), "dataColbs.yml"));

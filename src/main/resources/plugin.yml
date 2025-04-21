@@ -1,7 +1,7 @@
 name: BattleRoyale
 version: '${project.version}'
 main: org.infernworld.battleroyale.BattleRoyale
-api-version: '1.16'
+api-version: '1.21'
 authors: [ Великий Егшот ]
 commands:
   tp: {}

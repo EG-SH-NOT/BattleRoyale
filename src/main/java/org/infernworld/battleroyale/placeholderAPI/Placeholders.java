@@ -50,9 +50,13 @@ public class Placeholders extends PlaceholderExpansion {
     }
 
     private String getLifeOnline() {
-        return String.valueOf(Bukkit.getOnlinePlayers().stream().filter(
-                p -> p.getGameMode() !=
-                        GameMode.SPECTATOR).count());
+        long player= 0;
+        for (Player p : Bukkit.getOnlinePlayers()) {
+            if (p.getGameMode() == GameMode.SURVIVAL) {
+                player++;
+            }
+        }
+        return String.valueOf(player);
     }
 
     private String getPhase() {

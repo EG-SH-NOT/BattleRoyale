@@ -1,21 +1,53 @@
+world-base: base
+
 colbs:
-  colb1:
-    world: "world"
-    x: 100
-    y: 64
-    z: 100
-  colb2:
-    world: "world"
-    x: 110
-    y: 64
-    z: 100
-  colb3:
-    world: "world"
-    x: 120
-    y: 64
-    z: 100
-  colb4:
-    world: "world"
-    x: 130
-    y: 64
-    z: 100
+  base:
+    colb3:
+      world: "BetaTest"
+      x: -323
+      y: 64
+      z: 55
+    colb1:
+      world: "BetaTest"
+      x: -334.576
+      y: 65.0
+      z: 55.426
+    colb2:
+      world: "BetaTest"
+      x: -324.576
+      y: 65.0
+      z: 90.426
+
+  world:
+    colb4:
+      world: "BetaTest"
+      x: -400
+      y: 64
+      z: 55
+    colb5:
+      world: "BetaTest"
+      x: 420.576
+      y: 65.0
+      z: -55.426
+    colb6:
+      world: "BetaTest"
+      x: 400.576
+      y: 65.0
+      z: 90.426
+
+  world2:
+    colb7:
+      world: "BetaTest"
+      x: -900
+      y: 64
+      z: -55
+    colb8:
+      world: "BetaTest"
+      x: -500.576
+      y: 65.0
+      z: 55.426
+    colb9:
+      world: "BetaTest"
+      x: -200.576
+      y: 65.0
+      z: -90.426

@@ -39,12 +39,22 @@ public final class BattleRoyale extends JavaPlugin {
     @Override
     public void onEnable() {
         loadFiles();
-        setup();
-        registerListener();
-        registerCommand();
 
         createFolderWorld();
-        new ResetManager(this).resetWorld(cfg.getWorld(), "base");
+        String baseWorld = randomWorld();
+        getLogger().info("Выбран мир: " + baseWorld);
+        dataColbs.set("world-base", baseWorld);
+        try {
+            dataColbs.save(new File(getDataFolder(), "dataColbs.yml"));
+        } catch (Exception e) {
+            getLogger().warning("Не удалось сохранить! " + e.getMessage());
+        }
+
+        setup();
+        new ResetManager(this).resetWorld(cfg.getWorld(), baseWorld);
+
+        registerListener();
+        registerCommand();
         if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
             new Placeholders(this).register();
         }
@@ -74,6 +84,15 @@ public final class BattleRoyale extends JavaPlugin {
         if (!folder.exists()) {
             folder.mkdirs();
         }
+    }
+    private String randomWorld() {
+        File folder = new File(getDataFolder(), "worlds");
+        File[] base = folder.listFiles(File::isDirectory);
+        if (base == null || base.length == 0) {
+            throw new IllegalStateException("В папке worlds нет миров");
+        }
+        int idx = new java.util.Random().nextInt(base.length);
+        return base[idx].getName();
     }
 
     private void registerListener() {
