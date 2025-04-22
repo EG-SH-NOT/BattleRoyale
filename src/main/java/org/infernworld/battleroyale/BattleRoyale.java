@@ -126,6 +126,7 @@ public final class BattleRoyale extends JavaPlugin {
         this.dataColbs = addonCfgFile("dataColbs.yml", true);
     }
 
+
     @Override
     public void onDisable() {
         if (gameManager.game != null) {

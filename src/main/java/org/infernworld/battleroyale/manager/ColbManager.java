@@ -29,22 +29,22 @@ public class ColbManager {
                 .getConfigurationSection("colbs." + tpl);
 
         if (section == null) {
-            plugin.getLogger().warning("Колбы для шаблона '" + tpl + "' не найдены!");
+            plugin.getLogger().warning("Колбы для " + tpl + " не найдены!");
             return;
         }
-
         colbs.clear();
         for (String key : section.getKeys(false)) {
-            ConfigurationSection c = section.getConfigurationSection(key);
-            World world = Bukkit.getWorld(c.getString("world"));
+            ConfigurationSection sel = section.getConfigurationSection(key);
+            World world = Bukkit.getWorld(sel.getString("world"));
             Location loc = new Location(
                     world,
-                    c.getDouble("x"),
-                    c.getDouble("y"),
-                    c.getDouble("z")
+                    sel.getDouble("x"),
+                    sel.getDouble("y"),
+                    sel.getDouble("z")
             );
             colbs.add(loc);
         }
+
     }
 
     public void saveColbLocation(String name, Location location) {

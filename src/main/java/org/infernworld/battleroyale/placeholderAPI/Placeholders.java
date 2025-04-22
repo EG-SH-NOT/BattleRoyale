@@ -52,6 +52,7 @@ public class Placeholders extends PlaceholderExpansion {
     private String getLifeOnline() {
         long player= 0;
         for (Player p : Bukkit.getOnlinePlayers()) {
+            if (p.hasPermission("battleroyale.admin")) continue;
             if (p.getGameMode() == GameMode.SURVIVAL) {
                 player++;
             }

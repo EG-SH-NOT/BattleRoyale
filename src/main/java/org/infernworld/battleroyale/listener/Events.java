@@ -81,8 +81,8 @@ public class Events implements Listener {
 
     @EventHandler(priority = EventPriority.HIGHEST)
     public void onDamageEvent(EntityDamageByEntityEvent e) {
-        Player player = (Player) e.getEntity();
         if (!(e.getDamager() instanceof Player) || !(e.getEntity() instanceof Player)) return;
+        Player player = (Player) e.getEntity();
         if (!gameManager.isPvp) {
             val msg = message.getPvpDisable()
                     .replace("{time}",String.valueOf(gameManager.getPvpTimeLeft()));

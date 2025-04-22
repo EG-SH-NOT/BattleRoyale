@@ -39,6 +39,8 @@ public class PlayerGameManager {
     }
 
     public void playerToColb(Player player) {
+        if (player.hasPermission("battleroyale.admin")) return;
+
         long max = Bukkit.getOnlinePlayers().size();
 
         if (max > cfg.getMaxPlayer()) {
@@ -105,6 +107,7 @@ public class PlayerGameManager {
         if (alivePlayers.isEmpty()) {
             return;
         }
+
         Teams teamsPlugin = (Teams) Bukkit.getPluginManager().getPlugin("Teams");
         TeamManager teamManager = (teamsPlugin != null) ? teamsPlugin.getTeamManager() : null;
 
